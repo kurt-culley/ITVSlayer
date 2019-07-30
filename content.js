@@ -26,7 +26,7 @@ const callback = function(mutationsList, observer) {
 const observer = new MutationObserver(callback);
 observer.observe(targetNode, config);
 
-storageShows[episodeId] ? (triggerReload = false) : (triggerReload = true); // Check if the episodeId pulled from the video element is present in localStorage
+!episodeId || storageShows[episodeId] ? (triggerReload = false) : (triggerReload = true); // Check if the episodeId pulled from the video element is present in localStorage
 
 // Map over the shows pulled from localStorage, then map over each show's keys
 // If the key matches a 3 digit number we have found where the breaksWatched object is stored,
